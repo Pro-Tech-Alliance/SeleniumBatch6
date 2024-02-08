@@ -25,7 +25,6 @@ public class Hooks {
         properties.load(file);
 
         String browserType = properties.getProperty("browser").toLowerCase().trim();
-        String url = properties.getProperty("baseUrl").trim();
 
         switch (browserType){
 
@@ -50,7 +49,6 @@ public class Hooks {
                 driver = new EdgeDriver(edgeOptions);
                 break;
         }
-                driver.get(url);
                 driver.manage().window().maximize();
 
     }
