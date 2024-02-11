@@ -10,9 +10,9 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 
-public class Explicit_Wait extends Hooks {
-   @Test
-    public void explicitWait(){
+public class Explicit_Wait extends Hooks{
+    @Test
+    public void explicitWait() {
 
         WebElement element = new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.elementToBeClickable(By.id("login-button")));
