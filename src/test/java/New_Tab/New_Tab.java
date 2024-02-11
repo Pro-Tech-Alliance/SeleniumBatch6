@@ -8,6 +8,7 @@ public class New_Tab extends Hooks {
     @Test
     public void newTab() throws InterruptedException {
         driver.switchTo().newWindow(WindowType.TAB);//switch to the new tab
+        driver.navigate().to("https://www.google.com/");//after switching to the new tab...navigate to this url
 
 
     }
