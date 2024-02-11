@@ -6,8 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -20,15 +18,15 @@ public class Fluent_Wait extends Hooks {
     public  void fluent_wait() {
 
         Wait<WebDriver> wait = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(20))
-                .pollingEvery(Duration.ofMillis(500))
+                .withTimeout(Duration.ofSeconds(15))
+                .pollingEvery(Duration.ofMillis(400))
                 .ignoring(NoSuchElementException.class);
 
         // Wait for the username input field to be visible
-        WebElement usernameInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("user-name")));
+        WebElement userNameInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("user-name")));
 
         // Insert the username
-        usernameInput.sendKeys("standard_user");
+        userNameInput.sendKeys("standard_user");
 
         // Wait for the password input field to be visible
         WebElement passwordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("password")));

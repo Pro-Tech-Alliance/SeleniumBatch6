@@ -11,6 +11,7 @@ import java.time.Duration;
 public class Implicit_Wait extends Hooks {
     @Test
     public void implicitlyWait(){
+        //
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         WebElement element = driver.findElement(By.id("user-name"));

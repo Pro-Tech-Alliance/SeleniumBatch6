@@ -15,6 +15,7 @@ public class Explicit_Wait extends Hooks {
         WebElement element = new WebDriverWait(driver, Duration.ofSeconds(20))
                 .until(ExpectedConditions.elementToBeClickable(By.id("login-button")));
 
+
     }
 
 }
