@@ -24,7 +24,7 @@ public class Explicit_Waits extends Hooks {
 
 
         WebElement Logoisdisplayed = driver.findElement(By.xpath("//img[@alt='company-branding']"));
-        System.out.println(" Id the Logo of WebApp displayed : " + Logoisdisplayed.isDisplayed());
+        System.out.println(" Is the Logo of WebApp displayed : " + Logoisdisplayed.isDisplayed());
 
 
         WebElement Username=  driver.findElement(By.xpath("//input[@placeholder='Username']"));
