@@ -34,10 +34,11 @@ public class Explicit_Waits extends Hooks {
         WebElement Password =  driver.findElement(By.xpath("//input[@placeholder='Password']"));
         Password.sendKeys("admin1203");
 
-        WebElement wait_time = new WebDriverWait(driver,Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable (By.xpath("//button[normalize-space()='Login']")));
+        // Explicit Waits
+        WebDriverWait wait_time = new WebDriverWait(driver,Duration.ofSeconds(10));
+        WebElement LoginButtoun= wait_time.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[normalize-space()='Login']")));
 
-        driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
+        LoginButtoun.click();
 
 
         WebElement InvalidPassword =  driver.findElement(By.xpath("//p[@class='oxd-text oxd-text--p oxd-alert-content-text']"));
