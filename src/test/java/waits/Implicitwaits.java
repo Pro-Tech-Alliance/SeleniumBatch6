@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Implicit_waits extends Hooks {
+public class Implicitwaits extends Hooks {
 
     @Test
     public void loginPage(){
