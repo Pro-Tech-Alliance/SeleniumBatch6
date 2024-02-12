@@ -16,9 +16,11 @@ public class Implicit_Waits extends Hooks {
     @Test
     public void implicit_Wait (){
 
-        driver.get(baseUrl);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+
+
+        driver.get(baseUrl);
 
 
     }
