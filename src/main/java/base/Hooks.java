@@ -26,18 +26,27 @@ public class Hooks {
 
         String browserType = properties.getProperty("browser").toLowerCase().trim();
         String url = properties.getProperty("baseUrl").trim();
+        String operatingSystem = properties.getProperty("operatingSystem").trim();
 
         switch (browserType){
 
             case "chrome":
-                System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/java/drivers/chromedriver.exe");
+                if (operatingSystem.equals("windows")){
+                    System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/java/drivers/windows/chromedriver.exe");
+                } else if (operatingSystem.equals("macOs")) {
+                    System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/java/drivers/macOS/chromedriver");
+                }
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
                 driver = new ChromeDriver(chromeOptions);
                 break;
 
             case "firefox":
-                System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"/src/main/java/drivers/geckodriver.exe");
+                if (operatingSystem.equals("windows")){
+                    System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"/src/main/java/drivers/windows/geckodriver.exe");
+                } else if (operatingSystem.equals("macOs")) {
+                    System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"/src/main/java/drivers/macOS/geckodriver");
+                }
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
                 firefoxOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
                 driver = new FirefoxDriver(firefoxOptions);
