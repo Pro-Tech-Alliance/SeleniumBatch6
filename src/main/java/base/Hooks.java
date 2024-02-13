@@ -1,5 +1,6 @@
 package base;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -29,32 +30,34 @@ public class Hooks {
         switch (browserType){
 
             case "chrome":
-                System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/java/drivers/chromedriver.exe");
+                WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
                 driver = new ChromeDriver(chromeOptions);
                 break;
 
             case "firefox":
-                System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"/src/main/java/drivers/geckodriver.exe");
+                WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
                 firefoxOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
                 driver = new FirefoxDriver(firefoxOptions);
                 break;
 
             case "edge":
-                System.setProperty("webdriver.edge.driver",System.getProperty("user.dir")+"/src/main/java/drivers/msedgedriver.exe");
+                WebDriverManager.edgedriver().setup();
                 EdgeOptions edgeOptions = new EdgeOptions();
                 edgeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
                 driver = new EdgeDriver(edgeOptions);
                 break;
         }
-                driver.manage().window().maximize();
+
+                driver.get(url);//the variable url is declared above with the actual url
+                driver.manage().window().maximize();//this maximizes the page immediately the url is entered
 
     }
 @AfterTest
     public void tearDown(){
-        //driver.quit();
+        driver.quit();
 }
 
 
