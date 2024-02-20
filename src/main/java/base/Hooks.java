@@ -1,5 +1,6 @@
 package base;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -30,7 +31,8 @@ public class Hooks {
         switch (browserType){
 
             case "chrome":
-                System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/java/drivers/chromedriver.exe");
+                //System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/java/drivers/chromedriver.exe");
+                WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
                 driver = new ChromeDriver(chromeOptions);
