@@ -22,7 +22,7 @@ public class Screen_Shot extends Hooks {
         driver.findElement(By.cssSelector("[data-test*='password']")).sendKeys("secret_sauce");
         //capture Screenshot of page
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(scrFile, new File("./screenshots/LoginPage_screenshot.png"));
+        FileUtils.copyFile(scrFile, new File("./LoginPage_screenshot.png"));
 
         //screenshot an element
         WebElement loginButtom =driver.findElement(By.id("login-button"));
