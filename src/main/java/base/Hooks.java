@@ -18,7 +18,7 @@ import java.util.Properties;
 
 public class Hooks {
 
-    public WebDriver driver;
+    public static WebDriver driver;
 @BeforeTest
     public void setup() throws IOException {
         Properties properties = new Properties();
