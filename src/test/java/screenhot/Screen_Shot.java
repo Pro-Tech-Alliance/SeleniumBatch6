@@ -20,14 +20,14 @@ public class Screen_Shot extends Hooks {
 
         driver.findElement(By.cssSelector("#user-name")).sendKeys("standard_user");
         driver.findElement(By.cssSelector("[data-test*='password']")).sendKeys("secret_sauce");
-        //capture reenshot of page
+        //capture Screenshot of page
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(scrFile, new File("./LoginPage_screenshot.png"));
+        FileUtils.copyFile(scrFile, new File("./screenshots/LoginPage_screenshot.png"));
 
-        //screen shot an element
+        //screenshot an element
         WebElement loginButtom =driver.findElement(By.id("login-button"));
         scrFile = loginButtom.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(scrFile, new File("./loginButton.png"));
+        FileUtils.copyFile(scrFile, new File("./screenshots/loginButton.png"));
 
         driver.findElement(By.xpath("//input[@id='login-button']")).click();
 
@@ -36,7 +36,7 @@ public class Screen_Shot extends Hooks {
        assert getProductText.equals("Products");
 
         scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(scrFile, new File("./StandardUserLoggedIN_screenshot.png"));
+        FileUtils.copyFile(scrFile, new File("./screenshots/StandardUserLoggedIN_screenshot.png"));
 
 
     }
