@@ -11,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -59,7 +60,7 @@ public class Hooks {
 
     }
 
-    @AfterTest
+@Test
     public void tearDown() {
         driver.quit();
 
