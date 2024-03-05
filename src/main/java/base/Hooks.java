@@ -11,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -18,17 +19,18 @@ import java.util.Properties;
 
 public class Hooks {
 
-    public WebDriver driver;
-@BeforeTest
+    public static WebDriver driver;
+
+    @BeforeTest
     public void setup() throws IOException {
         Properties properties = new Properties();
-        FileInputStream file = new FileInputStream(System.getProperty("user.dir")+"/src/main/java/properties/config.properties");
+        FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/src/main/java/properties/config.properties");
         properties.load(file);
 
         String browserType = properties.getProperty("browser").toLowerCase().trim();
         String url = properties.getProperty("baseUrl").trim();
 
-        switch (browserType){
+        switch (browserType) {
 
             case "chrome":
                 WebDriverManager.chromedriver().setup();
@@ -52,13 +54,15 @@ public class Hooks {
                 break;
         }
 
-                driver.get(url);//the variable url is declared above with the actual url
-                driver.manage().window().maximize();//this maximizes the page immediately the url is entered
+        driver.get(url);//the variable url is declared above with the actual url
+        driver.manage().window().maximize();//this maximizes the page immediately the url is entered
 
-@AfterTest
-    public void tearDown(){
+
+    }
+
+@Test
+    public void tearDown() {
         driver.quit();
-}
 
-
+    }
 }
