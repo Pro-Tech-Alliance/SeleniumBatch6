@@ -24,11 +24,11 @@ public class Full_screenshot extends Hooks {
     @Test
     public static void fullPageScreenshot() throws IOException {
         // Take a full-page screenshot
-//        Screenshot screenshot = new AShot().takeScreenshot(driver);
-        Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(ShootingStrategies.scaling(1.75f), 1000)).takeScreenshot(driver);
+//        Screenshot screenshot = new AShot().takeScreenshot(driver);ShootingStrategies
+        Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(ShootingStrategies.scaling(2f), 1000)).takeScreenshot(driver);
 
 //                takeScreenshot(driver);
-        ImageIO.write(screenshot.getImage(), "PNG", new File("./screenshots/fullpage_screenshot.png"));
+        ImageIO.write(screenshot.getImage(), "PNG", new File("./screenshots/FullPage_Screenshot.png"));
 
     }
 }
